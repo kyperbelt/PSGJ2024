@@ -1,6 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1y3ycc32kdw2"]
+[gd_scene load_steps=6 format=3 uid="uid://d1y3ycc32kdw2"]
 
 [ext_resource type="Texture2D" uid="uid://b1dp1bpydiuug" path="res://assets/image/NightborneCharaModel.png" id="1_88lc2"]
+
+[sub_resource type="Animation" id="Animation_472yy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8vjfa"]
+resource_name = "normal"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_s87qg"]
+resource_name = "power"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8vifn"]
+_data = {
+"RESET": SubResource("Animation_472yy"),
+"normal": SubResource("Animation_8vjfa"),
+"power": SubResource("Animation_s87qg")
+}
 
 [node name="Player" type="Node2D"]
 scale = Vector2(10, 10)
@@ -12,3 +68,7 @@ hframes = 6
 vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8vifn")
+}
+autoplay = "normal"

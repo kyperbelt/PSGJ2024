@@ -17,9 +17,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
+@warning_ignore("shadowed_variable")
 static func calculate_level_xp(level: int)-> int:
-	pass
+	return floor(BASE_EXP_REQ + SCALE_FACTOR * pow(log(level), EXP))
 

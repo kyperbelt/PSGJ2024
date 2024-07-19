@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1dp1bpydiuug" path="res://assets/image/NightborneCharaModel.png" id="1_88lc2"]
 
 [node name="Player" type="Node2D"]
+scale = Vector2(10, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

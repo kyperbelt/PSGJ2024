@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1y3ycc32kdw2"]
+[gd_scene load_steps=7 format=3 uid="uid://d1y3ycc32kdw2"]
 
 [ext_resource type="Texture2D" uid="uid://b1dp1bpydiuug" path="res://assets/image/NightborneCharaModel.png" id="1_88lc2"]
+[ext_resource type="Script" path="res://game/combatant.gd" id="1_scsjp"]
 
 [sub_resource type="Animation" id="Animation_472yy"]
 length = 0.001
@@ -60,6 +61,7 @@ _data = {
 
 [node name="Player" type="Node2D"]
 scale = Vector2(10, 10)
+script = ExtResource("1_scsjp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

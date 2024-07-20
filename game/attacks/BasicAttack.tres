@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://bo51ndhtd3jkv"]
+
+[ext_resource type="Texture2D" uid="uid://boucmce8ek1yx" path="res://assets/image/map_01_03.png" id="1_pll82"]
+[ext_resource type="Script" path="res://game/attacks/attack.gd" id="1_w8owe"]
+
+[resource]
+script = ExtResource("1_w8owe")
+name = "BasicAttack"
+icon = ExtResource("1_pll82")
+type = 3
+base_damage = 1
+bonus_damage_dice = 2
+bonus_damage_sides = 6
+cooldown = 100

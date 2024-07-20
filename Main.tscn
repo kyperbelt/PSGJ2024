@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsr37t18gnrqd"]
+[gd_scene load_steps=16 format=3 uid="uid://dsr37t18gnrqd"]
 
 [ext_resource type="Texture2D" uid="uid://d4a8mjnitr3tx" path="res://assets/image/North_ground_01.png" id="1_3lc6j"]
 [ext_resource type="PackedScene" uid="uid://d1y3ycc32kdw2" path="res://game/player/Player.tscn" id="1_lr1y3"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://boucmce8ek1yx" path="res://assets/image/map_01_03.png" id="10_pjloe"]
 [ext_resource type="Texture2D" uid="uid://1t41foylnlto" path="res://assets/image/scale_01_03_white.png" id="10_t2j53"]
 [ext_resource type="Texture2D" uid="uid://chxcgbhg5h6vi" path="res://assets/image/scale_01_01.png" id="11_g33ha"]
+[ext_resource type="Script" path="res://game/game_master.gd" id="14_afx07"]
+[ext_resource type="Script" path="res://game/monster_spawner.gd" id="15_duiti"]
 
 [node name="Main" type="Node2D"]
 
@@ -56,10 +58,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ShadowContainer" type="MarginContainer" parent="CanvasLayer" node_paths=PackedStringArray("progress_bars")]
-offset_left = 10.0
-offset_top = 468.0
-offset_right = 174.0
-offset_bottom = 632.0
+offset_left = 20.0
+offset_top = 458.0
+offset_right = 184.0
+offset_bottom = 622.0
 script = ExtResource("8_gif86")
 progress_bars = [NodePath("Shader"), NodePath("Sahdow2")]
 progress = 0.382
@@ -102,3 +104,11 @@ motion_mirroring = Vector2(1534, 0)
 [node name="NorthGround01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(685, 387)
 texture = ExtResource("1_3lc6j")
+
+[node name="GameMaster" type="Node" parent="." node_paths=PackedStringArray("_player", "_spawner")]
+script = ExtResource("14_afx07")
+_player = NodePath("../Player")
+_spawner = NodePath("../MonsterSpawner")
+
+[node name="MonsterSpawner" type="Node" parent="."]
+script = ExtResource("15_duiti")

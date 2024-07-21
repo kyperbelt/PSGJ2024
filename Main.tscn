@@ -1,13 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dsr37t18gnrqd"]
+[gd_scene load_steps=14 format=3 uid="uid://dsr37t18gnrqd"]
 
 [ext_resource type="Texture2D" uid="uid://d4a8mjnitr3tx" path="res://assets/image/North_ground_01.png" id="1_3lc6j"]
 [ext_resource type="PackedScene" uid="uid://d1y3ycc32kdw2" path="res://game/player/Player.tscn" id="1_lr1y3"]
 [ext_resource type="Script" path="res://game/marker.gd" id="2_cj8er"]
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="3_q6be3"]
 [ext_resource type="PackedScene" uid="uid://cvrji2lbxrchg" path="res://game/enemy/Enemy.tscn" id="4_72pvm"]
-[ext_resource type="Texture2D" uid="uid://b4vhbvigfu15h" path="res://assets/image/scale_02_07.png" id="5_q0cfn"]
-[ext_resource type="Texture2D" uid="uid://cjs48nojsaik6" path="res://assets/image/scale_02_04.png" id="6_e7kjw"]
-[ext_resource type="Texture2D" uid="uid://lw5j06c00kdd" path="res://assets/image/scale_02_06.png" id="7_buhyf"]
 [ext_resource type="Script" path="res://shadow_container.gd" id="8_gif86"]
 [ext_resource type="Material" uid="uid://b7ycwqogl2em0" path="res://waterShader.tres" id="9_dr64g"]
 [ext_resource type="Texture2D" uid="uid://bi7spy2yw6o88" path="res://assets/image/scale_01_03.png" id="9_xjj00"]
@@ -21,8 +18,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_lr1y3")]
 position = Vector2(210, 375)
-
-[node name="MonsterCotainer" type="Node" parent="."]
 
 [node name="Markers" type="Node" parent="."]
 
@@ -51,20 +46,9 @@ _name = "Spawn 1"
 _markerColor = Color(0.423651, 0.423651, 0.423651, 0.5)
 _markerWidth = 84
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MonsterCotainer" type="Node" parent="."]
 
-[node name="Experience" type="TextureProgressBar" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.462
-offset_left = 10.0
-offset_top = 16.0
-offset_right = 68.776
-offset_bottom = 35.0
-value = 49.0
-nine_patch_stretch = true
-texture_under = ExtResource("5_q0cfn")
-texture_over = ExtResource("6_e7kjw")
-texture_progress = ExtResource("7_buhyf")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -125,6 +109,7 @@ texture = ExtResource("1_3lc6j")
 
 [node name="GameMaster" type="Node" parent="." node_paths=PackedStringArray("_player", "_spawner")]
 script = ExtResource("14_afx07")
+_tick_rate = 5
 _player = NodePath("../Player")
 _spawner = NodePath("../MonsterSpawner")
 

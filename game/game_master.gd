@@ -1,6 +1,8 @@
+class_name GameMaster
 extends Node
 
-class_name GameMaster
+enum GameState { Spawning, Battle }
+
 const BASE_EXP_REQ: int = 100
 const SCALE_FACTOR: float = 50.0
 const EXP: int = 7
@@ -21,6 +23,8 @@ var _enemies: Array[Combatant] = []
 
 var _bout = 0
 
+var _spawning = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +34,7 @@ func _ready():
 func _initiate_spawn() -> void:
 	_bout += 1
 	_spawner.request_spawn(self)
+	_spawning = true
 
 
 func get_bout() -> int:
@@ -57,9 +62,19 @@ func _process(delta):
 
 func _tick():
 	_spawner.tick()
-	if _enemies.size() == 0:
+	if _enemies.size() == 0 && !_spawning:
 		_initiate_spawn()
+
+	for enemy: Enemy in _enemies:
+		enemy.tick(self)
 	_player.tick(self)
+
+
+func add_enemy(enemy: Enemy) -> void:
+	_enemies.append(enemy)
+	# TODO: there should be a different way to check if we are in spawn mode.
+	#		change this to a state machine.
+	_spawning = false
 
 
 static func calculate_level_xp(level: int) -> int:

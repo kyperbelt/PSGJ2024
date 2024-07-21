@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1y3ycc32kdw2"]
+[gd_scene load_steps=8 format=3 uid="uid://d1y3ycc32kdw2"]
 
 [ext_resource type="Texture2D" uid="uid://b1dp1bpydiuug" path="res://assets/image/NightborneCharaModel.png" id="1_88lc2"]
 [ext_resource type="Script" path="res://game/combatant.gd" id="1_scsjp"]
+[ext_resource type="Resource" uid="uid://bo51ndhtd3jkv" path="res://game/attacks/BasicAttack.tres" id="2_c412m"]
 
 [sub_resource type="Animation" id="Animation_472yy"]
 length = 0.001
@@ -62,6 +63,7 @@ _data = {
 [node name="Player" type="Node2D"]
 scale = Vector2(10, 10)
 script = ExtResource("1_scsjp")
+_attacks = Array[Resource("res://game/attacks/attack.gd")]([ExtResource("2_c412m")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,12 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvrji2lbxrchg"]
+[gd_scene load_steps=8 format=3 uid="uid://cvrji2lbxrchg"]
 
 [ext_resource type="Texture2D" uid="uid://bflca8b1rgeah" path="res://assets/image/Doll1.png" id="1_7h28v"]
 [ext_resource type="Script" path="res://game/enemy/enemy.gd" id="1_fjsbo"]
+[ext_resource type="Resource" uid="uid://bo51ndhtd3jkv" path="res://game/attacks/BasicAttack.tres" id="2_pyrgl"]
+[ext_resource type="Texture2D" uid="uid://b4vhbvigfu15h" path="res://assets/image/scale_02_07.png" id="4_djqkv"]
+[ext_resource type="Texture2D" uid="uid://cjs48nojsaik6" path="res://assets/image/scale_02_04.png" id="5_ik3ok"]
+[ext_resource type="Texture2D" uid="uid://lw5j06c00kdd" path="res://assets/image/scale_02_06.png" id="6_42ego"]
+[ext_resource type="Script" path="res://game/health_bar.gd" id="7_lukia"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_fjsbo")
+_attacks = Array[Resource("res://game/attacks/attack.gd")]([ExtResource("2_pyrgl")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
 position = Vector2(-5, 3)
 texture = ExtResource("1_7h28v")
+
+[node name="Experience" type="TextureProgressBar" parent="." node_paths=PackedStringArray("_combatant")]
+anchors_preset = -1
+offset_left = -41.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 7.0
+value = 49.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_djqkv")
+texture_over = ExtResource("5_ik3ok")
+texture_progress = ExtResource("6_42ego")
+script = ExtResource("7_lukia")
+_combatant = NodePath("..")

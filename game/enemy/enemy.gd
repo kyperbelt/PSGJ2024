@@ -9,7 +9,8 @@ var _spawn_entered: bool = false
 
 
 func _ready():
-	_spawn_speed = randf_range(100, 200)
+	super._ready()
+	_spawn_speed = randf_range(10, 200)
 	_spawn_entered = false
 	pass
 
@@ -22,7 +23,6 @@ func spawn(spawn_position: Vector2):
 	_spawn_entered = false 
 
 func tick(gm : GameMaster)->void:
-	print("enemy ticking")
 	super.tick(gm)
 
 

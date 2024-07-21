@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1y3ycc32kdw2"]
+[gd_scene load_steps=12 format=3 uid="uid://d1y3ycc32kdw2"]
 
 [ext_resource type="Texture2D" uid="uid://b1dp1bpydiuug" path="res://assets/image/NightborneCharaModel.png" id="1_88lc2"]
 [ext_resource type="Script" path="res://game/combatant.gd" id="1_scsjp"]
 [ext_resource type="Resource" uid="uid://bo51ndhtd3jkv" path="res://game/attacks/BasicAttack.tres" id="2_c412m"]
+[ext_resource type="Texture2D" uid="uid://b4vhbvigfu15h" path="res://assets/image/scale_02_07.png" id="4_6if8d"]
+[ext_resource type="Texture2D" uid="uid://cjs48nojsaik6" path="res://assets/image/scale_02_04.png" id="5_0tvkw"]
+[ext_resource type="Texture2D" uid="uid://lw5j06c00kdd" path="res://assets/image/scale_02_06.png" id="6_wxuri"]
+[ext_resource type="Script" path="res://game/health_bar.gd" id="7_nea2p"]
 
 [sub_resource type="Animation" id="Animation_472yy"]
 length = 0.001
@@ -63,10 +67,13 @@ _data = {
 [node name="Player" type="Node2D"]
 scale = Vector2(10, 10)
 script = ExtResource("1_scsjp")
+_type = 0
 _attacks = Array[Resource("res://game/attacks/attack.gd")]([ExtResource("2_c412m")])
+_base_health = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -8.6)
 texture = ExtResource("1_88lc2")
 hframes = 6
 vframes = 4
@@ -76,3 +83,16 @@ libraries = {
 "": SubResource("AnimationLibrary_8vifn")
 }
 autoplay = "normal"
+
+[node name="Experience" type="TextureProgressBar" parent="." node_paths=PackedStringArray("_combatant")]
+offset_left = -11.0
+offset_top = -15.1
+offset_right = 11.0
+offset_bottom = -13.1
+value = 49.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_6if8d")
+texture_over = ExtResource("5_0tvkw")
+texture_progress = ExtResource("6_wxuri")
+script = ExtResource("7_nea2p")
+_combatant = NodePath("..")

@@ -9,6 +9,8 @@ extends Node
 # and generally associated with level of difficulty.
 @export var _spawn_layout: Node
 
+var _spawning_enemies: Array[Enemy] = []
+
 
 func _ready():
 	pass
@@ -27,22 +29,20 @@ func request_spawn(gm: GameMaster) -> void:
 		_enemy_container.add_child(enemy)
 		# give enemy spawn(position command)
 		enemy.spawn(marker.position)
+		# add enemy to local spawning enemies list
+		_spawning_enemies.append(enemy)
 		# connect to its emit signal
 		enemy.spawn_entered.connect(self.on_spawn_entered.bind(gm, enemy), CONNECT_ONE_SHOT)
 
 
 func on_spawn_entered(gm: GameMaster, enemy: Enemy) -> void:
+	_spawning_enemies.erase(enemy)
+	enemy.use_cooldowns(gm)
 	gm.add_enemy(enemy)
-	pass
 
 
-func tick() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func is_spawning() -> bool:
+	return _spawning_enemies.size() != 0
 
 
 func get_spawn_markers(layout: Node) -> Array[Marker]:

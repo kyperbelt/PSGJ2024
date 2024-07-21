@@ -23,3 +23,7 @@ enum AttackType { SHADOW, LIGHT, FIRE, FIGHT, WATER, ICE }
 
 ## Cooldown in ticks
 @export var cooldown := 100
+
+
+## The last time in ticktime this attack was used
+var last_used_tick_time := 0

@@ -38,6 +38,12 @@ script = ExtResource("2_cj8er")
 _name = "Spawn 1"
 _markerWidth = 84
 
+[node name="SpawnMarker4" type="Area2D" parent="Markers"]
+position = Vector2(770, 419)
+script = ExtResource("2_cj8er")
+_name = "Spawn 1"
+_markerWidth = 84
+
 [node name="SpawnMarker3" type="Area2D" parent="Markers"]
 position = Vector2(908, 301)
 script = ExtResource("2_cj8er")
@@ -85,7 +91,7 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_under = ExtResource("9_xjj00")
 texture_progress = ExtResource("10_t2j53")
-tint_progress = Color(1, 0.313726, 0, 1)
+tint_progress = Color(0, 0.811986, 0.895846, 1)
 
 [node name="Shader" type="TextureProgressBar" parent="CanvasLayer/ShadowContainer"]
 material = ExtResource("9_dr64g")

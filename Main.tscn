@@ -20,7 +20,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lr1y3")]
-position = Vector2(210, 375)
+position = Vector2(262, 534)
 
 [node name="MonsterCotainer" type="Node" parent="."]
 

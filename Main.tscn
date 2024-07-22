@@ -17,30 +17,30 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lr1y3")]
-position = Vector2(262, 534)
+position = Vector2(198, 612)
 
 [node name="Markers" type="Node" parent="."]
 
 [node name="SpawnMarker" type="Area2D" parent="Markers"]
-position = Vector2(901, 517)
+position = Vector2(919, 577)
 script = ExtResource("2_cj8er")
 _name = "Spawn 1"
 _markerWidth = 84
 
 [node name="SpawnMarker2" type="Area2D" parent="Markers"]
-position = Vector2(992, 419)
+position = Vector2(1047, 486)
 script = ExtResource("2_cj8er")
 _name = "Spawn 1"
 _markerWidth = 84
 
 [node name="SpawnMarker4" type="Area2D" parent="Markers"]
-position = Vector2(770, 419)
+position = Vector2(797, 483)
 script = ExtResource("2_cj8er")
 _name = "Spawn 1"
 _markerWidth = 84
 
 [node name="SpawnMarker3" type="Area2D" parent="Markers"]
-position = Vector2(908, 301)
+position = Vector2(918, 373)
 script = ExtResource("2_cj8er")
 _name = "Spawn 1"
 _markerColor = Color(0.423651, 0.423651, 0.423651, 0.5)
@@ -59,16 +59,16 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ShadowContainer" type="MarginContainer" parent="CanvasLayer" node_paths=PackedStringArray("progress_bars")]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" node_paths=PackedStringArray("progress_bars")]
 offset_left = 20.0
-offset_top = 458.0
+offset_top = 29.0
 offset_right = 184.0
-offset_bottom = 622.0
+offset_bottom = 193.0
 script = ExtResource("8_gif86")
 progress_bars = [NodePath("Shader"), NodePath("Sahdow2")]
 progress = 0.382
 
-[node name="Sahdow2" type="TextureProgressBar" parent="CanvasLayer/ShadowContainer"]
+[node name="Sahdow2" type="TextureProgressBar" parent="CanvasLayer/MarginContainer2"]
 layout_mode = 2
 value = 38.0
 fill_mode = 3
@@ -77,17 +77,17 @@ texture_under = ExtResource("9_xjj00")
 texture_progress = ExtResource("10_t2j53")
 tint_progress = Color(0, 0.811986, 0.895846, 1)
 
-[node name="Shader" type="TextureProgressBar" parent="CanvasLayer/ShadowContainer"]
+[node name="Shader" type="TextureProgressBar" parent="CanvasLayer/MarginContainer2"]
 material = ExtResource("9_dr64g")
 layout_mode = 2
 value = 38.0
 fill_mode = 3
 texture_progress = ExtResource("10_t2j53")
 
-[node name="Control" type="Control" parent="CanvasLayer/ShadowContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer2"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureProgressBar" parent="CanvasLayer/ShadowContainer/Control"]
+[node name="TextureRect" type="TextureProgressBar" parent="CanvasLayer/MarginContainer2/Control"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = -11.0
